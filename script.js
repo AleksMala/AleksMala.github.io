@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  const apiRoot = 'https://limitless-eyrie-10600.herokuapp.com/v1/task/';
+  const apiRoot = 'https://limitless-eyrie-10600.herokuapp.com/v1/';
   const trelloApiRoot = 'https://limitless-eyrie-10600.herokuapp.com/v1/trello/';
   const datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
   const $tasksContainer = $('[data-tasks-container]');
@@ -111,9 +111,7 @@ $(document).ready(function() {
     var requestUrl = apiRoot + 'tasks';
 
     $.ajax({
-      url: requestUrl + '/' + $.param({
-        taskId: taskId
-      }),
+      url: requestUrl + '/' + taskId,
       method: 'DELETE',
       success: function() {
         parentEl.slideUp(400, function() { parentEl.remove(); });
